@@ -1,0 +1,662 @@
+[
+  {
+    "id": 1,
+    "cat": "CORE",
+    "diff": 1,
+    "q": "Which file extension does Bitwig Studio use for its native project files?",
+    "opts": [".bwproject", ".bwp", ".bitwigproject", ".bwsession"],
+    "ans": 0,
+    "explain": "Bitwig Studio saves complete projects as .bwproject files. This format contains the full project state including automation, MIDI data, and references to audio files."
+  },
+  {
+    "id": 2,
+    "cat": "CORE",
+    "diff": 2,
+    "q": "Which file format does Bitwig Studio use to store automation curve shapes that can be loaded into the Segments modulator?",
+    "opts": [".bwproject", ".bwpreset", ".bwcurve", ".multisample"],
+    "ans": 2,
+    "explain": ".bwcurve files store automation curve shapes and in Bitwig 6 are directly integrated with the Segments (MSEG) modulator, allowing automation clips to be saved and reused as modulator shapes."
+  },
+  {
+    "id": 3,
+    "cat": "CORE",
+    "diff": 2,
+    "q": "Which track type in Bitwig Studio can contain both audio input and an instrument device chain, outputting only audio?",
+    "opts": ["Audio Track", "Instrument Track", "Hybrid Track", "Group Track"],
+    "ans": 2,
+    "explain": "The Hybrid Track accepts both live audio input and instrument devices simultaneously, making it ideal for processing live audio through instrument-style device chains while outputting audio to the mix."
+  },
+  {
+    "id": 4,
+    "cat": "CORE",
+    "diff": 3,
+    "q": "Bitwig Studio's Controller API, used to write custom hardware controller scripts, is based on which programming language?",
+    "opts": ["Python", "JavaScript", "Lua", "Java"],
+    "ans": 1,
+    "explain": "Bitwig's Controller API uses JavaScript for writing custom hardware controller scripts. Scripts are stored in the user's Bitwig Studio/Controller Scripts directory and provide full access to Bitwig's host API."
+  },
+  {
+    "id": 5,
+    "cat": "ARRANGEMENT",
+    "diff": 1,
+    "q": "What does 'Bounce In Place' do to a selected MIDI clip in Bitwig Studio's Arranger?",
+    "opts": [
+      "Exports the clip as a WAV file to disk",
+      "Renders the clip and all device chain processing into a new audio clip at the same position on the same track",
+      "Consolidates all clips on the track into one region",
+      "Creates a frozen duplicate of the clip on a new Audio track"
+    ],
+    "ans": 1,
+    "explain": "Bounce In Place renders the selected clip including all instrument and FX chain processing into a new audio clip at the same position on the same track, replacing the original clip."
+  },
+  {
+    "id": 6,
+    "cat": "ARRANGEMENT",
+    "diff": 2,
+    "q": "What is the purpose of Take Lanes in Bitwig Studio?",
+    "opts": [
+      "To store multiple automation versions for a single parameter",
+      "To layer multiple instrument devices on a single track",
+      "To record and comp multiple takes of an audio or MIDI performance on the same track",
+      "To create parallel processing chains within the Arranger"
+    ],
+    "ans": 2,
+    "explain": "Take Lanes appear below a track when loop-recording, storing each pass as a separate take. You can then comp the best sections from different takes into a final performance."
+  },
+  {
+    "id": 7,
+    "cat": "ARRANGEMENT",
+    "diff": 2,
+    "q": "What is the key difference between 'Time Selection' mode and 'Object Selection' mode in Bitwig Studio's Arranger?",
+    "opts": [
+      "Time Selection only works on audio clips; Object Selection works on MIDI clips",
+      "Time Selection creates a range across all tracks regardless of clip boundaries; Object Selection targets individual clip objects",
+      "Time Selection locks the BPM; Object Selection allows tempo automation",
+      "Object Selection enables multi-track editing; Time Selection is single-track only"
+    ],
+    "ans": 1,
+    "explain": "Time Selection (range selection) creates a horizontal time range across all tracks useful for insertions, deletions, and ripple edits, while Object Selection targets individual clips and objects as discrete entities."
+  },
+  {
+    "id": 8,
+    "cat": "ARRANGEMENT",
+    "diff": 3,
+    "q": "When extracting groove from an audio clip in Bitwig Studio, what data does Bitwig analyze to generate the groove template?",
+    "opts": [
+      "The clip's embedded MIDI note positions",
+      "The transient positions detected in the audio waveform",
+      "The stretch markers manually placed by the user",
+      "The quantization grid applied during recording"
+    ],
+    "ans": 1,
+    "explain": "Groove extraction analyzes transient positions within an audio clip to capture the timing feel of the performance. This template can then be applied to MIDI clips or other audio for humanization."
+  },
+  {
+    "id": 9,
+    "cat": "MIXING",
+    "diff": 1,
+    "q": "In Bitwig Studio's signal flow, where are Note FX devices processed relative to the instrument?",
+    "opts": [
+      "After the instrument, before the audio FX",
+      "After all audio FX, before the fader",
+      "Before the instrument, processing note data",
+      "In parallel with the instrument"
+    ],
+    "ans": 2,
+    "explain": "Note FX devices sit before the instrument in the signal chain, processing MIDI/note data (pitch, velocity, timing) before it reaches the instrument for sound generation. The full signal flow is: Note FX → Instrument → Audio FX → Fader → Pan → Sends → Output."
+  },
+  {
+    "id": 10,
+    "cat": "MIXING",
+    "diff": 2,
+    "q": "In Bitwig Studio, how is send/return routing implemented?",
+    "opts": [
+      "Via dedicated Send tracks with a built-in return bus",
+      "By routing audio from any track to an Effect (FX) track using Send devices",
+      "Through the Mixer's auxiliary channels, separate from the main track list",
+      "Using the Audio Receiver device placed on a Group track"
+    ],
+    "ans": 1,
+    "explain": "Send routing in Bitwig uses Effect (FX) tracks as return busses. A Send device on a source track feeds audio to the FX track at a configurable level, supporting both pre-fader and post-fader configurations."
+  },
+  {
+    "id": 11,
+    "cat": "MIXING",
+    "diff": 2,
+    "q": "What happens when an audio effect device is set to 'Pre' fader mode in Bitwig Studio?",
+    "opts": [
+      "The device processes audio before it reaches any other devices in the chain",
+      "The device's output level is unaffected by the track fader",
+      "The device is bypassed until the fader reaches 0 dB",
+      "The device processes audio after all Post-fader devices"
+    ],
+    "ans": 1,
+    "explain": "A Pre-fader device processes audio independently of the track fader, meaning fader automation does not affect the signal level feeding that device — useful for level-sensitive dynamics processors like compressors or limiters."
+  },
+  {
+    "id": 12,
+    "cat": "MIXING",
+    "diff": 3,
+    "q": "What is the primary use case for Bitwig Studio's Audio Receiver device?",
+    "opts": [
+      "To record audio from an external hardware instrument into the project",
+      "To tap audio from any other track's output and route it into the current track's device chain for parallel processing",
+      "To receive audio from a ReWire-connected application",
+      "To monitor audio interface input without latency compensation"
+    ],
+    "ans": 1,
+    "explain": "The Audio Receiver device taps the post-fader output of any other track and injects it into the current track's device chain, enabling complex parallel processing topologies without needing dedicated send/return infrastructure."
+  },
+  {
+    "id": 13,
+    "cat": "INSTRUMENTS",
+    "diff": 1,
+    "q": "Which Bitwig Studio built-in instrument uses drawbar-style additive synthesis modeled after a tonewheel organ?",
+    "opts": ["Polysynth", "Organ", "Polymer", "Phase-4"],
+    "ans": 1,
+    "explain": "Organ is Bitwig's additive drawbar synthesizer, modeling the harmonic structure of tonewheel organs with adjustable drawbar levels for each harmonic partial."
+  },
+  {
+    "id": 14,
+    "cat": "INSTRUMENTS",
+    "diff": 2,
+    "q": "What makes Bitwig's Polymer synthesizer architecturally unique compared to other built-in instruments?",
+    "opts": [
+      "It is the only instrument that natively supports MPE polyphonic expression",
+      "Its oscillator, filter, and envelope components are swappable Grid-compatible modules",
+      "It uses a 4-operator FM matrix identical to classic DX-series synthesizers",
+      "It is the only instrument capable of loading external VST instruments as modules"
+    ],
+    "ans": 1,
+    "explain": "Polymer is a hybrid modular synthesizer where core components (oscillator, filter, amp, envelopes) are interchangeable Grid modules, allowing extensive customization of the synthesis architecture beyond fixed-architecture instruments."
+  },
+  {
+    "id": 15,
+    "cat": "INSTRUMENTS",
+    "diff": 2,
+    "q": "What is the functional difference between Mono and Legato voice modes in Bitwig instruments?",
+    "opts": [
+      "Legato retriggers the envelope on each new note; Mono does not",
+      "Mono retriggers the envelope on each new note; Legato slides pitch without retriggering when a key is held",
+      "Legato allows two simultaneous voices; Mono allows only one",
+      "There is no functional difference; they are aliases for the same mode"
+    ],
+    "ans": 1,
+    "explain": "In Mono mode, each new note retriggers the envelope. In Legato mode, if a key is held when a new note is played, the pitch changes (with portamento if configured) but the envelope continues without retriggering."
+  },
+  {
+    "id": 16,
+    "cat": "INSTRUMENTS",
+    "diff": 3,
+    "q": "How does MPE (MIDI Polyphonic Expression) work in Bitwig Studio?",
+    "opts": [
+      "MPE data is received on a single MIDI channel and routed to all voices simultaneously",
+      "Each note voice receives its own MIDI channel carrying independent pitch bend, pressure, and slide data",
+      "MPE requires a dedicated MPE track type separate from standard Instrument tracks",
+      "Bitwig converts MPE data to standard MIDI CC before passing it to instruments"
+    ],
+    "ans": 1,
+    "explain": "MPE assigns each note to its own MIDI channel, enabling per-note pitch bend, pressure (channel aftertouch), and slide (CC74) as independent expression per voice. Bitwig exposes this via Expressions modulators."
+  },
+  {
+    "id": 17,
+    "cat": "GRID",
+    "diff": 1,
+    "q": "Which Grid device type should you use to build a polyphonic synthesizer where each voice has its own independent signal path?",
+    "opts": ["Mono Grid", "FX Grid", "Poly Grid", "Note Grid"],
+    "ans": 2,
+    "explain": "Poly Grid creates a polyphonic instrument where each voice runs its own independent instance of the signal path, allowing per-voice modulation and processing. Mono Grid is strictly monophonic."
+  },
+  {
+    "id": 18,
+    "cat": "GRID",
+    "diff": 2,
+    "q": "In The Grid's pitch convention, what voltage value represents the note C3?",
+    "opts": ["1V", "0V", "-1V", "3V"],
+    "ans": 1,
+    "explain": "The Grid uses a 1V/octave pitch standard where 0V = C3. Each octave up adds 1V (C4 = 1V, C5 = 2V) and each octave down subtracts 1V (C2 = -1V)."
+  },
+  {
+    "id": 19,
+    "cat": "GRID",
+    "diff": 2,
+    "q": "What is required to create a stable feedback loop in The Grid without causing infinite gain buildup?",
+    "opts": [
+      "A DC Offset module to re-center the signal",
+      "A Delay module (Short Delay or Long Delay) inserted in the feedback path",
+      "A Limiter module at the feedback return point",
+      "Feedback loops are not supported in The Grid"
+    ],
+    "ans": 1,
+    "explain": "The Grid requires at least one sample of delay in any feedback path to prevent zero-latency feedback loops. Inserting a Short Delay or Long Delay breaks the instantaneous loop and allows stable feedback processing."
+  },
+  {
+    "id": 20,
+    "cat": "GRID",
+    "diff": 3,
+    "q": "In a Poly Grid, what determines whether a signal path runs per-voice or as a shared monophonic signal?",
+    "opts": [
+      "All modules in a Poly Grid always run per-voice",
+      "Signals sourced from per-voice sources (like Note In) run per-voice; signals from shared sources (like Audio In or global modulators) are shared across all voices",
+      "Only oscillator modules run per-voice; all other modules are shared",
+      "Each module is explicitly assigned to per-voice or shared mode via a context menu"
+    ],
+    "ans": 1,
+    "explain": "In a Poly Grid, modules connected downstream of per-voice sources (Note In for pitch/gate) run independently per voice, while modules connected only to shared sources (Audio In, global LFOs) process a single shared signal."
+  },
+  {
+    "id": 21,
+    "cat": "GRID",
+    "diff": 3,
+    "q": "What happens automatically when you connect an audio-rate signal to a module input that operates at control rate in The Grid?",
+    "opts": [
+      "The connection is rejected and shown with a red error indicator",
+      "Bitwig automatically downsamples the audio-rate signal to control rate at the connection point",
+      "The module switches to audio-rate processing, increasing CPU usage",
+      "The signal passes through unchanged, potentially causing aliasing"
+    ],
+    "ans": 1,
+    "explain": "The Grid automatically converts between audio-rate and control-rate signals at connection points. When an audio-rate signal feeds a control-rate input it is downsampled transparently — no manual intervention is required."
+  },
+  {
+    "id": 22,
+    "cat": "MODULATORS",
+    "diff": 1,
+    "q": "How do you assign a modulator to a specific parameter in Bitwig Studio?",
+    "opts": [
+      "Drag the modulator from the Browser onto the target parameter",
+      "Right-click the parameter and select 'Assign Modulator'",
+      "Click the modulator's output connector, then click (and drag) the target parameter to set depth",
+      "Enable 'Modulation Mode' in preferences, then drag from modulator to parameter"
+    ],
+    "ans": 2,
+    "explain": "To assign a modulator, click the modulator's output dot to enter assignment mode — all modulatable parameters become highlighted. Click and drag on the target parameter to assign it and set the modulation depth simultaneously."
+  },
+  {
+    "id": 23,
+    "cat": "MODULATORS",
+    "diff": 2,
+    "q": "What does 'recursive modulation' mean in Bitwig Studio's modulation system?",
+    "opts": [
+      "A modulator that feeds its own output back into itself to create self-oscillation",
+      "A modulator whose own parameters (such as Rate or Depth) are themselves modulated by another modulator",
+      "Modulation that loops back from the instrument output to the Note FX chain",
+      "Using a modulator inside a nested device container"
+    ],
+    "ans": 1,
+    "explain": "Recursive (chained) modulation means one modulator's parameters are controlled by another modulator — for example, an LFO's Rate being modulated by an Envelope Follower for dynamic, expressive modulation behavior."
+  },
+  {
+    "id": 24,
+    "cat": "MODULATORS",
+    "diff": 2,
+    "q": "What is the functional difference between Absolute and Relative modulation modes for a modulator assignment in Bitwig?",
+    "opts": [
+      "Absolute modulation uses fixed voltage ranges; Relative modulation scales to the parameter's current range",
+      "In Absolute mode, modulation targets a fixed value range; in Relative mode, it offsets from the parameter's current knob position",
+      "Relative mode only works with bipolar modulators; Absolute mode works with all types",
+      "The modes only affect display, not actual behavior"
+    ],
+    "ans": 1,
+    "explain": "In Relative mode, modulation is added as an offset to the parameter's knob value, so adjusting the knob shifts the entire modulation range. In Absolute mode, the modulation operates on a fixed value range regardless of the knob position."
+  },
+  {
+    "id": 25,
+    "cat": "MODULATORS",
+    "diff": 3,
+    "q": "When using the Macro device in Bitwig Studio, what capability distinguishes it from a simple one-to-many Remote Control assignment?",
+    "opts": [
+      "The Macro device can control parameters on tracks other than its host track",
+      "Each mapped parameter has its own independent response curve and min/max range, enabling non-linear and inverted mappings",
+      "The Macro device supports MIDI learn for hardware controller assignment, unlike Remote Controls",
+      "Macro mappings persist when the preset is saved and loaded in a different project"
+    ],
+    "ans": 1,
+    "explain": "The Macro device maps one knob to many parameters, but each individual mapping has its own curve shape and independent min/max range. This enables complex relationships like a single macro that opens one filter while simultaneously closing another."
+  },
+  {
+    "id": 26,
+    "cat": "NOTE_FX",
+    "diff": 2,
+    "q": "Where in an Instrument track's device chain must Note FX devices be placed?",
+    "opts": [
+      "After the instrument, in the audio FX section",
+      "Before the instrument, in the dedicated Note FX section at the start of the chain",
+      "Anywhere — Bitwig identifies Note FX by device type regardless of position",
+      "On a separate, dedicated Note FX send track"
+    ],
+    "ans": 1,
+    "explain": "Note FX devices must be placed in the Note FX section at the beginning of the device chain, before the instrument. They process MIDI/note data and cannot process audio."
+  },
+  {
+    "id": 27,
+    "cat": "NOTE_FX",
+    "diff": 2,
+    "q": "What does the Rate parameter in Bitwig Studio's Arpeggiator Note FX control?",
+    "opts": [
+      "The speed of pitch transposition between arpeggio notes",
+      "The rhythmic subdivision at which arpeggio notes are triggered",
+      "The number of octaves the arpeggio spans",
+      "The velocity curve applied to each arpeggiated note"
+    ],
+    "ans": 1,
+    "explain": "The Rate parameter sets the rhythmic subdivision (e.g., 1/8, 1/16, 1/4T) that determines how quickly the arpeggio steps through notes in sync with the project tempo."
+  },
+  {
+    "id": 28,
+    "cat": "NOTE_FX",
+    "diff": 3,
+    "q": "In Bitwig Studio 6's Key Filter+ device, what does 'Constrain' mode do differently from 'Filter' mode?",
+    "opts": [
+      "Constrain silences out-of-scale notes; Filter transposes them to the nearest scale tone",
+      "Filter blocks out-of-scale notes entirely; Constrain shifts them to the nearest scale degree without silencing",
+      "Constrain applies to velocity; Filter applies to pitch",
+      "Filter works in real-time; Constrain only applies during MIDI export"
+    ],
+    "ans": 1,
+    "explain": "Filter mode silences notes that fall outside the selected scale, while Constrain mode keeps all notes playing but transposes any out-of-scale note to the nearest scale degree, preserving rhythmic density."
+  },
+  {
+    "id": 29,
+    "cat": "NOTE_FX",
+    "diff": 3,
+    "q": "What is the primary purpose of the Note Receiver device in Bitwig Studio?",
+    "opts": [
+      "To receive MIDI input from an external hardware controller on a specific channel",
+      "To route note/MIDI data generated by another track into the current track's Note FX chain",
+      "To convert audio transients into MIDI trigger notes",
+      "To merge MIDI from multiple hardware ports into a single instrument track"
+    ],
+    "ans": 1,
+    "explain": "Note Receiver routes note data from any other track's instrument or clips into the current track's Note FX chain, enabling cross-track MIDI routing — for instance, driving multiple instruments from a single MIDI clip."
+  },
+  {
+    "id": 30,
+    "cat": "CLIP_LAUNCHER",
+    "diff": 1,
+    "q": "In Bitwig Studio's Clip Launcher, what does triggering a Scene do?",
+    "opts": [
+      "It saves the current clip state as a named snapshot",
+      "It simultaneously triggers all clips in the same horizontal row across all tracks",
+      "It switches the Arranger to a predefined section",
+      "It applies the same Follow Action to all clips in the project"
+    ],
+    "ans": 1,
+    "explain": "A Scene represents a horizontal row of clips in the Clip Launcher. Triggering a scene simultaneously launches all clips in that row across all tracks, enabling instant full-arrangement transitions in live performance."
+  },
+  {
+    "id": 31,
+    "cat": "CLIP_LAUNCHER",
+    "diff": 2,
+    "q": "What does the Follow Action 'Next' do in Bitwig Studio's Clip Launcher?",
+    "opts": [
+      "The clip loops indefinitely until manually stopped",
+      "After the clip completes, it automatically triggers the clip slot directly below it in the same track column",
+      "The clip triggers the next scene across all tracks",
+      "After playback, the transport follows the Arranger timeline position"
+    ],
+    "ans": 1,
+    "explain": "The 'Next' Follow Action causes a clip to automatically trigger the clip slot immediately below it in the same track when it finishes playing, enabling automated upward clip progression without manual triggering."
+  },
+  {
+    "id": 32,
+    "cat": "CLIP_LAUNCHER",
+    "diff": 2,
+    "q": "What does the Launch Quantize setting control in Bitwig Studio's Clip Launcher?",
+    "opts": [
+      "The quantization applied to MIDI notes within clips when recorded",
+      "The rhythmic grid boundary at which a triggered clip will actually begin playing",
+      "The number of bars a clip waits before looping",
+      "The tempo quantization applied during scene transitions"
+    ],
+    "ans": 1,
+    "explain": "Launch Quantize sets when a triggered clip actually starts. Set to 1 bar, clicking a clip trigger waits until the next bar boundary before the clip begins, ensuring all clips stay rhythmically aligned."
+  },
+  {
+    "id": 33,
+    "cat": "CLIP_LAUNCHER",
+    "diff": 3,
+    "q": "What does the Follow Action 'Other' do in Bitwig Studio's Clip Launcher?",
+    "opts": [
+      "It repeats the current clip from the beginning",
+      "It stops playback of the current clip entirely",
+      "It randomly triggers one of the other clips in the same track column, excluding the currently playing clip",
+      "It triggers the corresponding clip in the next scene row down"
+    ],
+    "ans": 2,
+    "explain": "'Other' randomly selects and triggers any clip in the same track column except the currently playing clip, creating non-repeating random variation — useful for generative live performance without immediate repetition."
+  },
+  {
+    "id": 34,
+    "cat": "HARDWARE",
+    "diff": 2,
+    "q": "What voltage standard does Bitwig Studio's HW CV Out device use for pitch when interfacing with Eurorack modular synthesizers?",
+    "opts": [
+      "Hz/V (Hertz per Volt), proportional to oscillator frequency",
+      "1V/octave, where each additional volt raises pitch by one octave",
+      "5V/octave, matching the Buchla standard",
+      "0–10V linear, where 0V is the lowest note and 10V is the highest"
+    ],
+    "ans": 1,
+    "explain": "Bitwig's HW CV Out uses the 1V/octave standard universal to Eurorack systems. This matches The Grid's internal pitch convention (0V = C3), ensuring seamless integration with Eurorack hardware."
+  },
+  {
+    "id": 35,
+    "cat": "HARDWARE",
+    "diff": 2,
+    "q": "What unique capability does the HW Instrument device provide that HW CV Out alone cannot?",
+    "opts": [
+      "It sends polyphonic CV to hardware with MPE-style per-channel routing",
+      "It sends MIDI or CV/gate to external hardware AND returns the hardware's audio into Bitwig with automatic latency compensation",
+      "It provides analog clock synchronization to hardware sequencers",
+      "It supports bidirectional CV — receiving CV from hardware as a modulation source"
+    ],
+    "ans": 1,
+    "explain": "HW Instrument is a complete hardware instrument integration device: it sends MIDI or CV/gate to external hardware and simultaneously returns its audio output back into Bitwig's device chain with automatic round-trip latency compensation."
+  },
+  {
+    "id": 36,
+    "cat": "HARDWARE",
+    "diff": 3,
+    "q": "Why must an audio interface be DC-coupled to use Bitwig Studio's CV output features with Eurorack modular gear?",
+    "opts": [
+      "DC-coupled interfaces support higher sample rates required for CV timing accuracy",
+      "Standard AC-coupled interfaces block steady-state voltage components that CV signals require for accurate pitch and gate information",
+      "DC coupling provides lower latency for hardware synchronization",
+      "Eurorack requires balanced TRS connections which only DC-coupled interfaces support"
+    ],
+    "ans": 1,
+    "explain": "CV signals include DC (0 Hz) components — a held pitch is a constant voltage. AC-coupled interfaces use capacitors that block DC, causing sustained CV voltages to drift to zero and destroying pitch accuracy."
+  },
+  {
+    "id": 37,
+    "cat": "HARDWARE",
+    "diff": 3,
+    "q": "In Bitwig Studio's HW Clock Out device, what does the Pulses Per Quarter Note (PPQN) setting determine?",
+    "opts": [
+      "The audio buffer size used for hardware synchronization calculations",
+      "How many analog clock pulses are sent per quarter note, determining resolution and compatibility with external hardware",
+      "The number of MIDI clock messages sent per bar to external devices",
+      "The voltage amplitude of each clock pulse sent to hardware"
+    ],
+    "ans": 1,
+    "explain": "PPQN sets how many analog clock pulses Bitwig sends per quarter note. Different hardware expects different values (e.g., 24 PPQN for MIDI-synced gear, 1 PPQN for step sequencers that advance one step per pulse)."
+  },
+  {
+    "id": 38,
+    "cat": "SAMPLING",
+    "diff": 1,
+    "q": "Which Sampler time-stretch mode in Bitwig Studio changes playback pitch by altering the playback speed, like a tape machine?",
+    "opts": ["Stretch", "Cycles", "Textures", "Repitch"],
+    "ans": 3,
+    "explain": "Repitch mode links pitch directly to playback speed — slowing down lowers the pitch, speeding up raises it. No time-stretching algorithm is applied, exactly like a tape machine or record player."
+  },
+  {
+    "id": 39,
+    "cat": "SAMPLING",
+    "diff": 2,
+    "q": "In Bitwig Sampler's Textures time-stretch mode, what does the Spray parameter control?",
+    "opts": [
+      "The number of simultaneous grain streams produced",
+      "The randomization of grain source position around the current playhead",
+      "The amplitude envelope shape applied to each grain",
+      "The crossfade time between consecutive grains"
+    ],
+    "ans": 1,
+    "explain": "Spray randomizes where each grain is sourced from around the current playhead position. Higher Spray values scatter grains further from the exact playhead location, creating more diffuse, cloud-like textural results."
+  },
+  {
+    "id": 40,
+    "cat": "SAMPLING",
+    "diff": 2,
+    "q": "In Bitwig's Sampler, what do velocity layers in a multisample allow you to define?",
+    "opts": [
+      "Different playback speeds for different MIDI velocity values",
+      "Different audio samples triggered based on how hard a note is played",
+      "Velocity-dependent pitch shifting applied to a single sample",
+      "Separate send levels per velocity range"
+    ],
+    "ans": 1,
+    "explain": "Velocity layers map different audio samples to different velocity ranges within the same pitch zone. For example, a piano multisample might use soft recordings for velocity 1–64 and hard recordings for 65–127."
+  },
+  {
+    "id": 41,
+    "cat": "SAMPLING",
+    "diff": 3,
+    "q": "What is the primary sonic characteristic of Bitwig Sampler's Cycles time-stretch mode, and for what content is it best suited?",
+    "opts": [
+      "Spectral processing ideal for complex polyphonic audio like full mixes",
+      "Waveform cycle preservation during stretching, best suited for monophonic pitched content like single oscillator synth sounds",
+      "Random-length granularization, best for percussive material",
+      "Formant preservation making it ideal for vocal content at any stretch ratio"
+    ],
+    "ans": 1,
+    "explain": "Cycles mode analyzes and preserves the periodic cycle structure of the waveform during stretching, producing very clean results for simple monophonic pitched sounds. It creates audible artifacts on complex or polyphonic material."
+  },
+  {
+    "id": 42,
+    "cat": "V6",
+    "diff": 1,
+    "q": "In Bitwig Studio 6, what is an Automation Clip?",
+    "opts": [
+      "A MIDI clip that contains only expression data without note events",
+      "A self-contained clip that holds automation data, which can be looped, stretched, and saved independently",
+      "An audio clip with automatic pitch correction applied",
+      "A clip that automatically adapts its length to match the project tempo"
+    ],
+    "ans": 1,
+    "explain": "Automation Clips in Bitwig 6 are dedicated clip objects on automation lanes that contain only automation data. They can be looped, time-stretched, and saved as .bwcurve files for reuse across projects."
+  },
+  {
+    "id": 43,
+    "cat": "V6",
+    "diff": 2,
+    "q": "What is the defining behavior of Clip Aliases in Bitwig Studio 6?",
+    "opts": [
+      "They are renamed copies of clips stored in the Browser for quick access",
+      "Multiple aliases share one underlying pattern — editing any alias updates all aliases simultaneously",
+      "Aliases are read-only reference clips that cannot be edited in the Detail Editor",
+      "Aliases store only clip launch settings without audio or MIDI content"
+    ],
+    "ans": 1,
+    "explain": "Clip Aliases are linked references to a single shared pattern. Editing any alias immediately updates all other aliases, enabling powerful pattern reuse where a single edit propagates to every instance in the arrangement."
+  },
+  {
+    "id": 44,
+    "cat": "V6",
+    "diff": 2,
+    "q": "In Bitwig Studio 6's automation system, what does the Spread feature do to an automation point?",
+    "opts": [
+      "It copies the automation point value to multiple tracks simultaneously",
+      "It applies a per-point randomized value range around the point's value, reproducible via a Seed value",
+      "It stretches the automation curve symmetrically around the selected point",
+      "It distributes the value evenly between neighboring automation points"
+    ],
+    "ans": 1,
+    "explain": "Spread adds controlled randomization per automation point — each playback, the value is randomly offset within the defined Spread range. The Seed value makes this reproducible, enabling repeatable 'humanized' automation."
+  },
+  {
+    "id": 45,
+    "cat": "V6",
+    "diff": 2,
+    "q": "In Bitwig Studio 6, what does pressing [A] in the Arranger activate?",
+    "opts": [
+      "The Audio Engine settings panel",
+      "Automation Mode, overlaying all parameter automation lanes across all tracks",
+      "The Audition tool for previewing clips without affecting transport",
+      "A new automation clip at the current playhead position"
+    ],
+    "ans": 1,
+    "explain": "Pressing [A] toggles Automation Mode in Bitwig 6's Arranger, which overlays automation lanes for all parameters across all tracks simultaneously — providing a comprehensive automation view without navigating track by track."
+  },
+  {
+    "id": 46,
+    "cat": "V6",
+    "diff": 3,
+    "q": "In Bitwig Studio 6, how does the Hold automation point type differ from a standard interpolated automation point?",
+    "opts": [
+      "Hold points are fixed at 0 dB and serve as reference anchors",
+      "A Hold point maintains a flat, constant value from its position until the next automation point, creating stepped automation",
+      "Hold points freeze the parameter at the last manually set value, ignoring subsequent automation",
+      "They hold the automation value during playback but allow real-time hardware controller override"
+    ],
+    "ans": 1,
+    "explain": "Hold points create stepped automation — the value stays constant from the Hold point until the next point, then jumps immediately with no interpolation. This is ideal for discrete parameter changes like preset switches or snapshots."
+  },
+  {
+    "id": 47,
+    "cat": "ADVANCED",
+    "diff": 1,
+    "q": "Which third-party plugin formats does Bitwig Studio support?",
+    "opts": [
+      "VST2, VST3, AU, and CLAP",
+      "VST2, VST3, and CLAP only",
+      "VST3 and CLAP only",
+      "VST2, AU, and CLAP only"
+    ],
+    "ans": 1,
+    "explain": "Bitwig Studio supports VST2, VST3, and CLAP formats. Notably, it does NOT support Audio Units (AU) — even on macOS — distinguishing it from Logic Pro and other Mac-native DAWs."
+  },
+  {
+    "id": 48,
+    "cat": "ADVANCED",
+    "diff": 2,
+    "q": "What does the Instrument Selector container device do in Bitwig Studio?",
+    "opts": [
+      "It scans all installed instruments and provides a searchable dropdown",
+      "It holds multiple instrument chains and routes note input to only one selected chain at a time, switchable via parameter or modulation",
+      "It distributes incoming notes across multiple instruments in round-robin fashion",
+      "It creates a multitimbral setup where different MIDI channels trigger different instruments"
+    ],
+    "ans": 1,
+    "explain": "Instrument Selector holds multiple instrument chains and routes all note input to only the currently selected one. The selection can be automated or modulated, enabling preset-switching or performance scene changes within a single track."
+  },
+  {
+    "id": 49,
+    "cat": "ADVANCED",
+    "diff": 2,
+    "q": "How does Bitwig Studio's plugin sandboxing architecture protect project stability?",
+    "opts": [
+      "Each plugin runs in its own separate process, so a crashing plugin cannot bring down Bitwig or affect other plugins",
+      "Plugins run in a sandboxed virtual machine that restricts filesystem access",
+      "Bitwig pins each plugin to a single CPU core to prevent thread contention",
+      "Plugin sandboxing limits each plugin's memory allocation to prevent system crashes"
+    ],
+    "ans": 0,
+    "explain": "Bitwig runs each plugin in its own separate OS process. If a plugin crashes, only that plugin's process terminates — Bitwig Studio itself and all other plugins continue running unaffected, preserving project stability."
+  },
+  {
+    "id": 50,
+    "cat": "ADVANCED",
+    "diff": 3,
+    "q": "What does the Crossover container device in Bitwig Studio enable that a standard parallel Chain device cannot?",
+    "opts": [
+      "Device nesting beyond Bitwig's default depth limit",
+      "Splitting audio into separate frequency bands and routing each band to a different device chain, then summing them at the output",
+      "A crossfade control for blending between two device chains over time",
+      "Routing audio to chains based on incoming MIDI note pitch"
+    ],
+    "ans": 1,
+    "explain": "The Crossover device implements multiband processing — it uses crossover filters to divide audio into frequency bands (Low, Mid, High) and sends each to a separate device chain for independent processing, then recombines them at the output."
+  }
+]
